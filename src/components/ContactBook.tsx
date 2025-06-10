@@ -57,7 +57,7 @@ const ContactBookApp = () => {
               value={formData.city}
               onChange={handleChange}
             />
-            <button type="submit">Add Contact</button>
+            <button type="submit" className="button">Add Contact</button>
           </form>
         </div>
       )}
@@ -75,7 +75,7 @@ const ContactBookApp = () => {
               <>
                 <p className="contact-name">{item.name}</p>
                 <p className="contact-city">{item.city}</p>
-                <button onClick={() => setEditIndex(index)}>Edit</button>
+                <button className="button" onClick={() => setEditIndex(index)}>Edit</button>
               </>
             )}
           </div>

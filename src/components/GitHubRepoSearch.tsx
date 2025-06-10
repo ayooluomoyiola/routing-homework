@@ -1,19 +1,15 @@
 import { useState } from "react";
 import "./githubreposearch.css";
 import axios from "axios";
-
-// type Repo = {
-//   id: number;
-//   name: string;
-//   hmtl_url: string;
-//   stargazers_count: number;
-// };
+import { parse } from "date-fns";
 
 type Repo = {
   id: number;
   full_name: string;
   html_url: string;
   stargazers_count: number;
+  description: string;
+  updated_at: string;
 };
 
 const GitHubRepoSearch = () => {
@@ -23,6 +19,17 @@ const GitHubRepoSearch = () => {
   const [resultsPerPage, setResultsPerPage] = useState("10");
   const [sort, setSort] = useState("bestMatch");
   const [order, setOrder] = useState("desc");
+
+  const formattedDate = (dateInput: string) => {
+    const date = dateInput.split("T")[0];
+    const parseDate = parse(date, "yyyy-MM-dd", new Date());
+    const formatted = new Intl.DateTimeFormat("en-UK", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    return formatted.format(parseDate);
+  };
 
   const searchRepos = async () => {
     setLoading(true);
@@ -99,15 +106,21 @@ const GitHubRepoSearch = () => {
       ) : (
         <ul>
           {repos.map((repo) => (
-            <div>
-              <li key={repo.id} className="repo-card">
+            <div key={repo.id}>
+              <li className="repo-card">
                 <a
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {repo.full_name} ⭐ {repo.stargazers_count}
+                  {repo.full_name}
                 </a>
+                <p className="repo-desc">{repo.description}</p>
+                <div className="last">
+                  <p>{repo.stargazers_count} stars</p>
+                  <p>•</p>
+                  <p>Updated at {formattedDate(repo.updated_at)}</p>
+                </div>
               </li>
             </div>
           ))}
