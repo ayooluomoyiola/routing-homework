@@ -41,8 +41,10 @@ const EditForm = ({ initialData, onSave, onDelete }: EditFormProps) => {
           onChange={handleChange}
           required
         />
-        <button type="submit">Save</button>
-        <button type="button" onClick={onDelete}>
+        <button type="submit" className="contact-button">
+          Save
+        </button>
+        <button type="button" onClick={onDelete} className="contact-button">
           Delete
         </button>
       </form>

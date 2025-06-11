@@ -1,0 +1,16 @@
+.course-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.course-button {
+  font-size: 16px;
+  width: 200px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgb(95, 95, 255);
+  border: none;
+  color: #f8f8f8;
+}

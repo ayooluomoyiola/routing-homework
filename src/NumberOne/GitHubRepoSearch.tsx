@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./githubreposearch.css";
 import axios from "axios";
 import { parse } from "date-fns";
@@ -31,41 +31,42 @@ const GitHubRepoSearch = () => {
     return formatted.format(parseDate);
   };
 
-  const searchRepos = async () => {
-    setLoading(true);
+  useEffect(() => {
+    const searchRepos = async () => {
+      setLoading(true);
 
-    try {
-      const sortParam = sort === "bestMatch" ? "" : `&sort=${sort}`;
-      const orderParam = `&order=${order}`;
-      const perPageParam = `&per_page=${resultsPerPage}`;
+      try {
+        const sortParam = sort === "bestMatch" ? "" : `&sort=${sort}`;
+        const orderParam = `&order=${order}`;
+        const perPageParam = `&per_page=${resultsPerPage}`;
 
-      const response = await axios.get(
-        `https://api.github.com/search/repositories?q=${query}${sortParam}${orderParam}${perPageParam}`
-      );
+        const response = await axios.get(
+          `https://api.github.com/search/repositories?q=${query}${sortParam}${orderParam}${perPageParam}`
+        );
 
-      setRepos(response.data.items);
-    } catch (error) {
-      console.error("Error fetching data", error);
-    }
+        setRepos(response.data.items);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
 
-    setLoading(false);
-  };
+      setLoading(false);
+    };
+
+    searchRepos();
+  }, [query, order, sort, resultsPerPage]);
 
   return (
     <div className="main">
       <h1>GitHub Repository Search</h1>
 
-      <div className="query">
+      <form className="query">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search repos"
         />
-        <button onClick={searchRepos} disabled={loading}>
-          Search
-        </button>
-      </div>
+      </form>
 
       <div className="selects">
         <select

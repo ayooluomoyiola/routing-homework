@@ -12,18 +12,8 @@ h1 {
 
 .query {
   display: flex;
-
   gap: 10px;
   margin-bottom: 20px;
-}
-
-button {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: #222222;
-  border: none;
-  color: #f8f8f8
 }
 
 input {
@@ -55,9 +45,11 @@ input {
   padding: 10px;
   background-color: #f8f8f8;
   border: 1px solid #e1e1e1;
+  text-wrap: wrap;
   border-radius: 10px;
   text-decoration: none;
   min-height: 50px;
+  max-width: 700px;
   margin: 20px;
 }
 
