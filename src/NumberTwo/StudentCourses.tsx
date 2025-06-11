@@ -23,10 +23,10 @@ const StudentCourses = () => {
       <div className="courses-list">
         {student.courses.map((course) => (
           <div key={course.code} className="courses-card">
-            <p style={{ fontWeight: "500", fontSize: "1.5rem", marginBottom:"0px"}}>
+            <p style={{ fontWeight: "500", fontSize: "1.5rem", marginBottom:"30px"}}>
               {course.code} - {course.title}
             </p>
-            <p style={{ marginTop:"5px", marginBottom:"30px"}}>{course.description}</p>
+            {/* <p style={{ marginTop:"5px", marginBottom:"30px"}}>{course.description}</p> */}
             <button
               className="courses-button"
               onClick={() =>
