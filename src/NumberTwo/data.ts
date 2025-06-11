@@ -2,6 +2,7 @@ import type { Student } from "./types";
 
 export const students: Student[] = [
   {
+    id: 1,
     name: "Chinedu Okafor",
     grade: "A",
     courses: [
@@ -18,6 +19,7 @@ export const students: Student[] = [
     ],
   },
   {
+    id: 2,
     name: "Amina Bello",
     grade: "B",
     courses: [
@@ -34,6 +36,7 @@ export const students: Student[] = [
     ],
   },
   {
+    id: 3,
     name: "Tolu Adebayo",
     grade: "C",
     courses: [
@@ -50,6 +53,7 @@ export const students: Student[] = [
     ],
   },
   {
+    id: 4,
     name: "Ngozi Nwachukwu",
     grade: "A",
     courses: [
@@ -66,6 +70,7 @@ export const students: Student[] = [
     ],
   },
   {
+    id: 5,
     name: "Gbenga Alabi",
     grade: "D",
     courses: [

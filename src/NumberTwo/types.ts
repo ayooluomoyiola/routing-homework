@@ -5,6 +5,7 @@ export type Course = {
 };
 
 export type Student = {
+  id: number;
   name: string;
   grade: "A" | "B" | "C" | "D" | "E" | "F";
   courses: Course[];

@@ -26,7 +26,6 @@ const StudentCourses = () => {
             <p style={{ fontWeight: "500", fontSize: "1.5rem", marginBottom:"30px"}}>
               {course.code} - {course.title}
             </p>
-            {/* <p style={{ marginTop:"5px", marginBottom:"30px"}}>{course.description}</p> */}
             <button
               className="courses-button"
               onClick={() =>

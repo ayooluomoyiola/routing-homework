@@ -7,6 +7,7 @@ import StudentHomePage from "./NumberTwo/StudentHomePage";
 import StudentList from "./NumberTwo/StudentList";
 import StudentCourses from "./NumberTwo/StudentCourses";
 import StudentCoursePage from "./NumberTwo/StudentCoursePage";
+import SearchResults from "./NumberTwo/SearchResults";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/github" element={<GitHubRepoSearch />} />
 
           <Route path="/portal" element={<StudentHomePage />} />
+          <Route path="/students/search" element={<SearchResults />} />
           <Route path="/students" element={<StudentList />} />
           <Route path="students/:studentId" element={<StudentCourses />} />
           <Route
