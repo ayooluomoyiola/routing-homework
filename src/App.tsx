@@ -10,6 +10,7 @@ import StudentCoursePage from "./NumberTwo/StudentCoursePage";
 import SearchResults from "./NumberTwo/SearchResults";
 
 function App() {
+
   return (
     <>
       <BrowserRouter>
